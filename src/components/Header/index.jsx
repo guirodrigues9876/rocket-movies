@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import { Container, Profile, Brand} from './styles';
 
 import { Input } from '../Input';
