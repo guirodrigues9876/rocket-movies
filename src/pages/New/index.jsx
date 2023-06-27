@@ -32,14 +32,16 @@ export function New() {
 
                     <Section title= "Marcadores">
                         <div className="tags">
-                            <MovieItem value="react" />
+                            <MovieItem value="Ação" />
+                            <MovieItem value="Aventura" />
+                            <MovieItem value="Ficção Científica" />
                             <MovieItem isNew placeholder="Novo marcador" />
                         </div>
                     </Section>
 
                     <div className="buttons">
-                        <Button title="Excluir filme" />
-                        <Button title="Salvar alterações" />
+                        <Button loading title="Excluir filme" />
+                        <Button title="Salvar alterações"/>
                     </div>
                     
                 </Form>

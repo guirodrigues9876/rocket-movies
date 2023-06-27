@@ -12,13 +12,16 @@ export const Container = styled.header`
     border-bottom-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
 
     display: flex;
-    gap: 64px;
+    align-items: center;
+    justify-content: space-between;
     padding: 0 80px;
 
 `;
 
 export const Profile = styled.div`
     display: flex;
+    flex-wrap: nowrap;
+    width: 80px;
     gap: 8px;
     align-items: center;
 

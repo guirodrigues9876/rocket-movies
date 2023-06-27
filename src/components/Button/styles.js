@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.button`
     width: 100%;
     background-color: ${({ theme }) => theme.COLORS.PINK};
-    color: ${({ theme }) => theme.COLORS.BLUE};
+    color: ${({ theme }) => theme.COLORS.BACKGROUND_700};
 
     height: 56px;
     border: 0;
@@ -13,7 +13,9 @@ export const Container = styled.button`
     font-weight: 500;
 
     &:disabled {
-        opacity: 0.5;
+        background-color: ${({ theme }) => theme.COLORS.BLACK};
+        color: ${({ theme }) => theme.COLORS.PINK};
+
     }
 
 `;

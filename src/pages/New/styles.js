@@ -26,9 +26,9 @@ export const Container = styled.div`
 
     .tags {
         display: flex;
-        justify-content: space-between;
         flex-wrap: wrap;
-
+        gap: 24px;
+        border-radius: 8px;
         padding: 16px;
 
         background-color: ${({ theme }) => theme.COLORS.BLACK};
@@ -42,14 +42,16 @@ export const Container = styled.div`
 `;
 
 export const Form = styled.form`
+    display: flex;
+    flex-direction: column;
     max-width: 1000px;
     margin: 40px auto;
+    gap: 40px;
 
     > header {
         display: flex;
         flex-direction: column;
         gap: 24px;
 
-        margin-bottom: 40px;
     }
 `;
