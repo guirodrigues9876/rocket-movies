@@ -6,9 +6,9 @@ export function Header(){
     return(
         <Container>
             <Brand>
-                <Link to="/">
+                {/* <Link to="/"> */}
                     <h1>RocketMovies</h1>
-                </Link>
+                {/* </Link> */}
             </Brand>
             {/* <Search> */}
                 <Input
