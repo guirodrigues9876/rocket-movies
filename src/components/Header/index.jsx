@@ -18,7 +18,7 @@ export function Header(){
 
             <Profile>
                 <div>
-                    Guilherme Rodrigues
+                    <strong>Guilherme Santos</strong>
                     <span>sair</span>
                 </div>
                 <img 

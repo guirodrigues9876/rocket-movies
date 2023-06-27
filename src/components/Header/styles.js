@@ -9,19 +9,17 @@ export const Container = styled.header`
 
     border-bottom-width: 1px;
     border-bottom-style: solid;
-    border-bottom-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+    border-bottom-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 64px;
     padding: 0 80px;
 
 `;
 
 export const Profile = styled.div`
     display: flex;
-    flex-wrap: nowrap;
-    width: 80px;
     gap: 8px;
     align-items: center;
 
@@ -33,14 +31,20 @@ export const Profile = styled.div`
 
     > div {
         display: flex;
+        width: auto;
         flex-direction: column;
         align-items: flex-end;
         line-height: 24px;
 
         span {
             font-size: 14px;
+            color: ${({ theme }) => theme.COLORS.WHITE};
+        }
+
+        strong {
+            font-size: 14px;
+            color: ${({ theme }) => theme.COLORS.WHITE};
             white-space: nowrap;
-            color: ${({theme}) => theme.COLORS.WHITE};
         }
     }
 `;
