@@ -10,4 +10,36 @@ export const Container = styled.div`
         "header"
         "content"
     ;
+
+    
+    > main {
+        grid-area: content;
+        overflow-y: auto;
+        padding: 64px 0;
+        
+        display: flex; 
+        flex-direction: column;
+        gap: 40px;
+        margin: 40px 123px;
+
+        > header {
+            display: flex;
+            flex-direction: column;
+            
+            h2 {
+                font-size: 36px;
+                color: ${({ theme }) => theme.COLORS.WHITE};
+            }
+
+            .title{
+                display: flex;
+                gap: 19px;
+                align-items: center;
+            }
+        }
+
+        .tags {
+            display: flex;
+        }
+    }
 `;
