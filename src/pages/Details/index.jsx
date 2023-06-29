@@ -25,7 +25,7 @@ export function Details() {
               />
             </div>
             <div className="profile">
-              <p>Por Guilherme Rodrigues 27/06/2023 às 09:00</p>
+              <p>Por Guilherme Rodrigues    27/06/2023 às 09:00</p>
             </div>
             
           </header>
