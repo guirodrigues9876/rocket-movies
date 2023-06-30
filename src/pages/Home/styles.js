@@ -17,7 +17,7 @@ export const Container = styled.div`
 export const Menu = styled.div`
     grid-area: menu;
     margin: 48px 120px;
-   
+    
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -32,10 +32,10 @@ export const Menu = styled.div`
     }
 `;
 
-
 export const Content = styled.div`
     grid-area: content;
     margin: 0 120px 48px;
     overflow-y: auto;
-    
+    padding-right: 5px;
+   
 `;

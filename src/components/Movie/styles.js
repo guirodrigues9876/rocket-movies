@@ -2,8 +2,12 @@ import styled from 'styled-components';
 
 export const Container = styled.button`
 
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
     width: 100%;
-    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
+    background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
 
     border: none;
     border-radius: 16px;
@@ -17,6 +21,12 @@ export const Container = styled.button`
         font-weight: 700;
         font-size: 24px;
         color: ${({ theme }) => theme.COLORS.WHITE};
+    }
+
+    > p {
+        text-align: left;
+        color: ${({ theme }) => theme.COLORS.GRAY_400};
+
     }
 
     > footer {
