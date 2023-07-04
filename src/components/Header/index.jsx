@@ -1,30 +1,30 @@
-import { Container, Profile, Brand} from './styles';
+import { Link } from 'react-router-dom';
 
 import { Input } from '../Input';
+
+import { Container, Profile} from './styles';
 
 export function Header(){
     return(
         <Container>
-            <Brand>
-                {/* <Link to="/"> */}
+                <Link to="/">
                     <h1>RocketMovies</h1>
-                {/* </Link> */}
-            </Brand>
+                </Link>
             {/* <Search> */}
                 <Input
                     placeholder="Pesquisar pelo Título"
                 />
             {/* </Search> */}
 
-            <Profile>
+            <Profile to="/profile">
                 <div>
                     <strong>Guilherme Santos</strong>
                     <span>sair</span>
-                </div>
-                <img 
+                </div>              
+                    <img 
                     src="http://github.com/guirodrigues9876.png"
                     alt="Foto do usuário"
-                />
+                    />
             </Profile>
         </Container>
 

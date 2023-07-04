@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.header`
     grid-area: header;
@@ -16,12 +16,27 @@ export const Container = styled.header`
     gap: 64px;
     padding: 0 80px;
 
+    > a {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: ${({ theme }) => theme.COLORS.PINK};
+        
+        > h1 {
+            font-size: 24px;
+            color: ${({ theme }) => theme.COLORS.PINK};
+        }
+        
+    }
+
 `;
 
-export const Profile = styled.div`
+export const Profile = styled(Link)`
     display: flex;
     gap: 8px;
     align-items: center;
+
+
 
     > img {
         width: 64px;
@@ -46,16 +61,5 @@ export const Profile = styled.div`
             color: ${({ theme }) => theme.COLORS.WHITE};
             white-space: nowrap;
         }
-    }
-`;
-
-export const Brand = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    > h1 {
-        font-size: 24px;
-        color: ${({ theme }) => theme.COLORS.PINK}
     }
 `;

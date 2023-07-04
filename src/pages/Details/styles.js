@@ -22,6 +22,13 @@ export const Container = styled.div`
         gap: 40px;
         margin: 40px 123px;
 
+        > a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: ${({ theme }) => theme.COLORS.PINK};
+        }
+
         > header {
             display: flex;
             flex-direction: column;

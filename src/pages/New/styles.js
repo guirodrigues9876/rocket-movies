@@ -53,5 +53,12 @@ export const Form = styled.form`
         flex-direction: column;
         gap: 24px;
 
+        > a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: ${({ theme }) => theme.COLORS.PINK};
+        }
     }
+
 `;

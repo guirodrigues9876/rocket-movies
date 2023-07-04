@@ -29,6 +29,7 @@ export const Menu = styled.div`
 
     > Button {
         width: 207px;
+
     }
 `;
 
@@ -37,5 +38,5 @@ export const Content = styled.div`
     margin: 0 120px 48px;
     overflow-y: auto;
     padding-right: 5px;
-   
 `;
+

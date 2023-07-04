@@ -1,4 +1,7 @@
 import Rating from '@mui/material/Rating';
+import { FiArrowLeft } from "react-icons/fi";
+
+import { Link } from 'react-router-dom';
 
 import { Container } from './styles';
 
@@ -12,7 +15,10 @@ export function Details() {
       <Header />
 
       <main>
-          <p>Voltar</p>
+            <Link to="/">
+                <FiArrowLeft />
+                Voltar
+            </Link>
           <header>
             <div className="title">
               <h2>Interestellar</h2>  

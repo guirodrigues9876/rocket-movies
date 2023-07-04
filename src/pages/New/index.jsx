@@ -1,4 +1,5 @@
-import { Container, Form } from './styles';
+import { Link } from 'react-router-dom';
+import { FiArrowLeft } from "react-icons/fi";
 
 import { Header } from '../../components/Header';
 import { Input } from '../../components/Input';
@@ -6,6 +7,8 @@ import { Textarea } from '../../components/Textarea';
 import { Section } from '../../components/Section';
 import { Button } from '../../components/Button';
 import { MovieItem } from '../../components/MovieItem';
+
+import { Container, Form } from './styles';
 
 export function New() {
     return(
@@ -15,7 +18,10 @@ export function New() {
             <main>
                 <Form>
                     <header>
-                        <p>Voltar</p>
+                        <Link to="/">
+                            <FiArrowLeft />
+                            Voltar
+                        </Link>
                         <h1>Novo Filme</h1>
                     </header>
                     

@@ -12,6 +12,13 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
         padding: 0 124px;
+
+        > a {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: ${({ theme }) => theme.COLORS.PINK};
+        }
     }
 `;
 
