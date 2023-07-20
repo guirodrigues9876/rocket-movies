@@ -1,9 +1,13 @@
 import { Container } from './styles';
 
-export const ButtonText({ title, ...rest}){
-    return(
-        <Container>
-            { title }
+export function ButtonText({ title, isActive = false, ...rest }){
+    return  (
+        <Container 
+            type="Button"
+            isActive={isActive}
+            {...rest}
+        >
+            {title}
         </Container>
-    )
+    );
 }

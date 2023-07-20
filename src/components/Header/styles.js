@@ -36,8 +36,6 @@ export const Profile = styled(Link)`
     gap: 8px;
     align-items: center;
 
-
-
     > img {
         width: 64px;
         height: 64px;

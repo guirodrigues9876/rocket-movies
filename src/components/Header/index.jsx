@@ -1,10 +1,14 @@
 import { Link } from 'react-router-dom';
+import { useAuth } from '../../hooks/auth';
 
 import { Input } from '../Input';
+import { ButtonText } from '../ButtonText';
 
 import { Container, Profile} from './styles';
 
 export function Header(){
+    const { signOut } = useAuth();
+
     return(
         <Container>
                 <Link to="/">
@@ -16,10 +20,12 @@ export function Header(){
                 />
             {/* </Search> */}
 
-            <Profile to="/profile">
+            <Profile>
                 <div>
                     <strong>Guilherme Santos</strong>
-                    <span>sair</span>
+                    <ButtonText
+                        title="Sair" onClick={signOut}
+                    />
                 </div>              
                     <img 
                     src="http://github.com/guirodrigues9876.png"
