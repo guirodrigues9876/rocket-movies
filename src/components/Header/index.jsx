@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/auth';
+import { api } from '../../services/api';
 
 import { Input } from '../Input';
 import { ButtonText } from '../ButtonText';
@@ -7,13 +8,15 @@ import { ButtonText } from '../ButtonText';
 import { Container, Profile} from './styles';
 
 export function Header(){
-    const { signOut } = useAuth();
+    const { signOut, user } = useAuth();
+
+    const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
     return(
         <Container>
-                <Link to="/">
-                    <h1>RocketMovies</h1>
-                </Link>
+            <Link to="/">
+                <h1>RocketMovies</h1>
+            </Link>
             {/* <Search> */}
                 <Input
                     placeholder="Pesquisar pelo Título"
@@ -22,17 +25,19 @@ export function Header(){
 
             <Profile>
                 <div>
-                    <strong>Guilherme Santos</strong>
+                    <strong>{user.name}</strong>
                     <ButtonText
                         title="Sair" onClick={signOut}
                     />
-                </div>              
-                    <img 
-                    src="http://github.com/guirodrigues9876.png"
-                    alt="Foto do usuário"
-                    />
+                </div>               
             </Profile>
-        </Container>
 
+            <Link to="/profile">
+                <img 
+                    src={avatarUrl}
+                    alt={user.name}
+                />
+            </Link>
+        </Container>
     );
 }
