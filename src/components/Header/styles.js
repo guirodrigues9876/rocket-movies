@@ -29,37 +29,34 @@ export const Container = styled.header`
         
     }
 
-`;
+    > a {
+        > img {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+        }
+    }
+    
+    `;
 
 export const Profile = styled(Link)`
     display: flex;
     gap: 8px;
     align-items: center;
-
-
-
-    > img {
-        width: 64px;
-        height: 64px;
-        border-radius: 50%;
-    }
-
+    
+    
     > div {
         display: flex;
         width: auto;
         flex-direction: column;
         align-items: flex-end;
         line-height: 24px;
-
-        span {
-            font-size: 14px;
-            color: ${({ theme }) => theme.COLORS.WHITE};
-        }
-
+        
         strong {
             font-size: 14px;
             color: ${({ theme }) => theme.COLORS.WHITE};
             white-space: nowrap;
         }
+
     }
 `;
