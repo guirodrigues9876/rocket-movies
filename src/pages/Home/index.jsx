@@ -1,81 +1,60 @@
+import { useNavigate } from 'react-router-dom';
+import { useState, useEffect} from 'react';
+import { FiPlus } from 'react-icons/fi';
 import { Header } from '../../components/Header';
-import { Button } from '../../components/Button';
+import { Input } from '../../components/Input';
 import { Movie } from '../../components/Movie';
+import { api } from '../../services/api';
 
-import { Container, Content, Menu } from './styles';
+import { Container, Content, Menu, NewMovie } from './styles';
 
 export function Home(){
+
+    const [search, setSearch] = useState("");
+    const [movies, setMovies] = useState([]);
+
+    const navigate = useNavigate();
+
+
+    function handleDetails(id){
+        navigate(`/details/${id}`);
+    };
+
+    useEffect(() => {
+        async function fetchMovies(){
+            const response = await api.get(`/notes?title=${search}`);
+            setMovies(response.data);
+        }
+
+        fetchMovies();
+    }, [search]);
+
+
     return(
         <Container>
-            <Header />
+            <Header>
+                <Input
+                    placeholder="Pesquisar pelo Título"
+                    onChange={(e) => setSearch(e.target.value)}
+                />
+            </Header>
 
             <Menu>
                 <h2>Meus Filmes</h2>
-                <Button title="Adicionar filme"></Button>
+                <NewMovie to="/new">
+                    <FiPlus />
+                    Adicionar Filme
+                </NewMovie>
             </Menu>
 
             <Content>
-                <Movie 
-                    data={{
-                        title: 'Iron man',
-                        description: 'Tony Stark é um industrial bilionário e inventor brilhante que realiza testes bélicos no exterior, mas é sequestrado por terroristas que o forçam a construir uma arma devastadora. Em vez disso, ele constrói uma armadura blindada e enfrenta seus sequestradores. Ao voltar para os EUA, Stark aprimora a armadura e a utiliza para combater o crime.',
-                        tags: [ 
-                            {id: '1', name: 'Ação'},
-                            {id: '2', name: 'Aventura'}
-                        ]
-                    }}
+            {movies.map((movie) => (
+                <Movie
+                key={String(movie.id)}
+                data={(movie)}
+                onClick={() => handleDetails(movie.id)}
                 />
-
-                <Movie 
-                    data={{
-                        title: 'Iron man',
-                        description: 'Tony Stark é um industrial bilionário e inventor brilhante que realiza testes bélicos no exterior, mas é sequestrado por terroristas que o forçam a construir uma arma devastadora. Em vez disso, ele constrói uma armadura blindada e enfrenta seus sequestradores. Ao voltar para os EUA, Stark aprimora a armadura e a utiliza para combater o crime.',
-                        tags: [ 
-                            {id: '1', name: 'Ação'},
-                            {id: '2', name: 'Aventura'}
-                        ]
-                    }}
-                />
-                <Movie 
-                    data={{
-                        title: 'Iron man',
-                        description: 'Tony Stark é um industrial bilionário e inventor brilhante que realiza testes bélicos no exterior, mas é sequestrado por terroristas que o forçam a construir uma arma devastadora. Em vez disso, ele constrói uma armadura blindada e enfrenta seus sequestradores. Ao voltar para os EUA, Stark aprimora a armadura e a utiliza para combater o crime.',
-                        tags: [ 
-                            {id: '1', name: 'Ação'},
-                            {id: '2', name: 'Aventura'}
-                        ]
-                    }}
-                />
-                <Movie 
-                    data={{
-                        title: 'Iron man',
-                        description: 'Tony Stark é um industrial bilionário e inventor brilhante que realiza testes bélicos no exterior, mas é sequestrado por terroristas que o forçam a construir uma arma devastadora. Em vez disso, ele constrói uma armadura blindada e enfrenta seus sequestradores. Ao voltar para os EUA, Stark aprimora a armadura e a utiliza para combater o crime.',
-                        tags: [ 
-                            {id: '1', name: 'Ação'},
-                            {id: '2', name: 'Aventura'}
-                        ]
-                    }}
-                />
-                <Movie 
-                    data={{
-                        title: 'Iron man',
-                        description: 'Tony Stark é um industrial bilionário e inventor brilhante que realiza testes bélicos no exterior, mas é sequestrado por terroristas que o forçam a construir uma arma devastadora. Em vez disso, ele constrói uma armadura blindada e enfrenta seus sequestradores. Ao voltar para os EUA, Stark aprimora a armadura e a utiliza para combater o crime.',
-                        tags: [ 
-                            {id: '1', name: 'Ação'},
-                            {id: '2', name: 'Aventura'}
-                        ]
-                    }}
-                />
-                <Movie 
-                    data={{
-                        title: 'Iron man',
-                        description: 'Tony Stark é um industrial bilionário e inventor brilhante que realiza testes bélicos no exterior, mas é sequestrado por terroristas que o forçam a construir uma arma devastadora. Em vez disso, ele constrói uma armadura blindada e enfrenta seus sequestradores. Ao voltar para os EUA, Stark aprimora a armadura e a utiliza para combater o crime.',
-                        tags: [ 
-                            {id: '1', name: 'Ação'},
-                            {id: '2', name: 'Aventura'}
-                        ]
-                    }}
-                />
+            ))}
             </Content>
         </Container>
     )
