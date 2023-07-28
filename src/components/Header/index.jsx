@@ -2,12 +2,13 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../../hooks/auth';
 import { api } from '../../services/api';
 
-import { Input } from '../Input';
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
+
 import { ButtonText } from '../ButtonText';
 
-import { Container, Profile} from './styles';
+import { Container, Profile, Search} from './styles';
 
-export function Header(){
+export function Header({ children }){
     const { signOut, user } = useAuth();
 
     const avatarUrl = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
@@ -17,11 +18,8 @@ export function Header(){
             <Link to="/">
                 <h1>RocketMovies</h1>
             </Link>
-            {/* <Search> */}
-                <Input
-                    placeholder="Pesquisar pelo Título"
-                />
-            {/* </Search> */}
+            
+            <Search>{children}</Search>
 
             <Profile>
                 <div>
