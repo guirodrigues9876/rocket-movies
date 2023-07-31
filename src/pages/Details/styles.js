@@ -29,6 +29,22 @@ export const Container = styled.div`
             color: ${({ theme }) => theme.COLORS.PINK};
         }
 
+        img {
+          width: 1.6rem;
+          height: 1.6rem;
+          border-radius: 50%;
+        }
+
+        .profile{
+            display: flex;
+            gap: 8px;
+            align-items: center;
+
+            svg {
+                color: ${({ theme }) => theme.COLORS.PINK};
+            }
+        }
+
         > header {
             display: flex;
             flex-direction: column;
