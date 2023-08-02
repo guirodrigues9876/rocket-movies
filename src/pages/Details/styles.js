@@ -10,7 +10,6 @@ export const Container = styled.div`
         "header"
         "content"
     ;
-
     
     > main {
         grid-area: content;
@@ -27,6 +26,22 @@ export const Container = styled.div`
             align-items: center;
             gap: 8px;
             color: ${({ theme }) => theme.COLORS.PINK};
+        }
+
+        img {
+          width: 1.6rem;
+          height: 1.6rem;
+          border-radius: 50%;
+        }
+
+        .profile{
+            display: flex;
+            gap: 8px;
+            align-items: center;
+
+            svg {
+                color: ${({ theme }) => theme.COLORS.PINK};
+            }
         }
 
         > header {

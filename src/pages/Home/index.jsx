@@ -18,7 +18,7 @@ export function Home(){
 
     function handleDetails(id){
         navigate(`/details/${id}`);
-    };
+    }
 
     useEffect(() => {
         async function fetchMovies(){
