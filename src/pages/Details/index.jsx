@@ -1,28 +1,47 @@
 import {  useState, useEffect } from 'react';
 import Rating from '@mui/material/Rating';
 import { FiArrowLeft, FiClock } from "react-icons/fi";
+import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
+
 
 import { useAuth } from '../../hooks/auth';
 
 import { api } from '../../services/api';
 
-import { Link, useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import { Container } from './styles';
 
 import { Header } from '../../components/Header';
 import { Tag } from '../../components/Tag';
+import { ButtonText } from '../../components/ButtonText';
+import { Button } from '../../components/Button';
 
 export function Details() {
   const [ data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
 
+  const navigate = useNavigate();
+  const params = useParams();
   const { user } = useAuth();
 
   const avatarUrl = user.avatar 
     ? `${api.defaults.baseURL}/files/${user.avatar}` 
     : avatarPlaceholder;
   
-  const params = useParams();
+
+  function handleBack(){
+    navigate(-1)
+  }
+
+  async function handleRemove(){
+    const confirm = window.confirm("Deseja realmente remover a nota?");
+
+    if (confirm) {
+      await api.delete(`/notes/${params.id}`);
+      navigate(-1);
+    }
+  }
 
   useEffect(() => {
     async function fetchNote(){
@@ -37,14 +56,19 @@ export function Details() {
     <Container>
       <Header />
 
+      <div>
+      </div>
      { 
       data &&
       <main>
-              <Link to="/">
-                  <FiArrowLeft />
-                  Voltar
-              </Link>
+
             <header>
+
+              <ButtonText onClick={handleBack}>
+                <FiArrowLeft />
+                Voltar
+              </ButtonText>
+
               <div className="title">
                 <h2>{data.title}</h2>  
                 <Rating
@@ -62,8 +86,6 @@ export function Details() {
               </div>
               
             </header>
-
-
               
             {
             data.tags &&(
@@ -82,6 +104,12 @@ export function Details() {
             <p>
               {data.description}
             </p>
+
+            <Button 
+              title= "Excluir Filme"
+              onClick={ handleRemove}
+              loading={loading}
+            />
       </main>
       }
     </Container>

@@ -1,9 +1,17 @@
 import styled from 'styled-components';
 
 export const Container = styled.button`
-    background: none;
-    color: ${({ theme, isActive }) => isActive ? theme.COLORS.ORANGE : theme.COLORS.GRAY_100};
 
+    background: none;
     border: none;
+
     font-size: 16px;
+    color: ${({ theme }) => theme.COLORS.PINK};
+
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    margin-bottom: 2.4rem;
+
 `;

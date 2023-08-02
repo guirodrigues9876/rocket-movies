@@ -10,7 +10,6 @@ export const Container = styled.div`
         "header"
         "content"
     ;
-
     
     > main {
         grid-area: content;

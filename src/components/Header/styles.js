@@ -14,7 +14,7 @@ export const Container = styled.header`
     display: flex;
     align-items: center;
     gap: 64px;
-    padding: 0 80px;
+    padding: 0 123px;
 
     > a {
         display: flex;
@@ -40,30 +40,40 @@ export const Container = styled.header`
     `;
 
 export const Search = styled.div`
-display: flex;
-align-items: center;
-padding: 0 6.4rem;
-flex-grow: 1;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
 `;
 
 export const Profile = styled(Link)`
     display: flex;
     gap: 8px;
-    align-items: center;
-    
+    align-items: center;   
     
     > div {
         display: flex;
         width: auto;
+        height: auto;
         flex-direction: column;
         align-items: flex-end;
-        line-height: 24px;
-        
+
         strong {
             font-size: 14px;
             color: ${({ theme }) => theme.COLORS.WHITE};
             white-space: nowrap;
         }
-
     }
+`;
+
+export const Logout = styled.button`
+    border: none;
+    background: none;
+
+    color: ${({ theme }) => theme.COLORS.PINK};
+    font-size: 14px;
+    line-height: 18px;
+
+    position: absolute;
+    top: 68px;
+    right: 193px;
 `;
