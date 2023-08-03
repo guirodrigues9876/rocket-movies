@@ -44,6 +44,10 @@ export function New() {
             return alert("Digite a sua nota para o filme");
         }
 
+        if( rating < 1 || rating > 5){
+            return alert("Digite uma nota entre 1 e 5");
+        }
+
         if(newTag){
             return alert("Você deixou um tag no campo para adicionar, mas não adicionou")
         }

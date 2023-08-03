@@ -14,7 +14,7 @@ export const Container = styled.div`
     > main {
         grid-area: content;
         overflow-y: auto;
-        padding: 64px 0;
+        padding: 48px 0;
         
         display: flex; 
         flex-direction: column;
@@ -58,10 +58,22 @@ export const Container = styled.div`
                 gap: 19px;
                 align-items: center;
             }
+
+            .rating{
+                color: ${({ theme }) => theme.COLORS.PINK};
+                border-color: ${({ theme }) => theme.COLORS.PINK};
+            }
+
+            .btn-delete{
+                width: 260px;
+                height: 80px;
+            }            
         }
 
+        
         .tags {
             display: flex;
         }
     }
+    
 `;

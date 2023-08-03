@@ -32,14 +32,18 @@ export function Profile(){
     
 
     async function handleUpdate(){
-        const user = {
+        const updated = {
             name,
             email,
             password: passwordNew,
             old_password: passwordOld,
         }
-        await updateProfile({ user, avatarFile });
+
+        const userUpdated = Object.assign(user, updated);
+
+        await updateProfile({ user: userUpdated, avatarFile });
     }
+
 
     function handleChangeAvatar(event){
         const file = event.target.files[0];
@@ -89,11 +93,14 @@ export function Profile(){
                 <Input 
                     icon= { FiLock }
                     placeholder="Senha atual"
+                    type="password"
+
                     onChange={e => setPasswordOld(e.target.value)}
                 />
                 <Input 
                     icon= { FiLock }
                     placeholder="Nova senha"
+                    type="password"
                     onChange={e => setPasswordNew(e.target.value)}
                 />
 

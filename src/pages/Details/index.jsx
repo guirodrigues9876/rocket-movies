@@ -1,5 +1,6 @@
-import {  useState, useEffect } from 'react';
+import {  useState, useEffect, Fragment } from 'react';
 import Rating from '@mui/material/Rating';
+import StyledRating from '@mui/material/Rating';
 import { FiArrowLeft, FiClock } from "react-icons/fi";
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg'
 
@@ -72,12 +73,19 @@ export function Details() {
               <div className="title">
                 <h2>{data.title}</h2>  
                 <Rating
-                  name="simple-controlled"
-                  value={5}
-                  onChange={(event, newValue) => {
-                    setValue(newValue);
+                  className="rating"
+                  value={data.rating}
+                  readOnly
+                  sx={{
+                    '& .MuiRating-iconFilled': {
+                      color: '#FF859B',
+                    },
+                    '& .MuiRating-iconEmpty': {
+                      color: '#FF859B',
+                    },
                   }}
                 />
+
               </div>
               <div className="profile">
                 <img src={avatarUrl} />
@@ -104,11 +112,11 @@ export function Details() {
             <p>
               {data.description}
             </p>
-
             <Button 
               title= "Excluir Filme"
+              className="btn-delete"
               onClick={ handleRemove}
-              loading={loading}
+              loading
             />
       </main>
       }
